@@ -7,11 +7,16 @@ class MyComponent extends Component {
        address: 'DN'
    }
     handleClick = (e) => {
-        alert('ok')
-        console.log(e.target)
+        console.log('my name is', this.state.name)
+        this.setState({
+            name : 'D',
+            age : Math.floor(Math.random()*100)
+        })
+
     }
-    handleHover = () => {
-        console.log('hover me')
+    handleHover = (e) => {
+        // console.log('hover me')
+        // console.log(e.target)
     }
 
     render() {
