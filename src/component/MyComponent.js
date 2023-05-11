@@ -10,8 +10,14 @@ class MyComponent extends Component {
         alert('ok')
         console.log(e.target)
     }
-    handleHover = () => {
-        console.log('hover me')
+    // handleHover = () => {
+    //     console.log('hover me')
+    // }
+    handleOnChange = (e) => {
+       this.setState({name: e.target.value})
+    }
+    handleOnSubmit = (e) => {
+       e.preventDefault()
     }
 
     render() {
@@ -22,8 +28,15 @@ class MyComponent extends Component {
                 My name is {this.state.name} and age : {this.state.age}
                 <button
                     onClick={this.handleClick}
-                    onMouseOver={this.handleHover}
+                    // onMouseOver={this.handleHover}
                 >Click me</button>
+                <form onSubmit={(e)=>{this.handleOnSubmit(e)}}>
+                    <input
+                        type="text"
+                        onChange={(e)=>{this.handleOnChange(e)}}
+                    />
+                    <button>submit</button>
+                </form>
             </div>
         );
     }
